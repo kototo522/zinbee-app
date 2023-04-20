@@ -1,37 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# アプリ名未定
+ハックツハッカソンジンベエカップで作ったWebサイトです．
+プルリクはdevelopにお願いします．
 
-## Getting Started
+## 開発を始める前に
 
-First, run the development server:
-
+### クローンの手順
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# 既存リポジトリをローカルにダウンロード
+git clone https://github.com/kototo522/zinbee-app
+
+# ファイルの移動
+cd　zinbee-app
+
+# 依存関係をインストール
+yarn install
+
+# 作業ブランチの作成
+git checkout -b ブランチ名
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 実行してみる
+```bash
+yarn dev
+```
+<br/>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## push作業
+```bash
+# 変更したファイル全てを追加する
+git add .
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+# 変更したファイルが追加されているか，秘密ファイルが入ってないか確認
+git status
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# コミット
+git commit -m "ここにコメント"
 
-## Learn More
+# プッシュ
+git push origin ブランチ名
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# zinbee-app
+```
