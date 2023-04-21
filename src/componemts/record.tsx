@@ -1,5 +1,6 @@
-
 const Record = () => {
-  return <h2>Record</h2>
+  return (
+      <button>Record</button>
+  )
 }
 export default Record
