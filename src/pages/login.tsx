@@ -3,14 +3,14 @@ import { useRouter } from 'next/router'
 
 const Login: NextPage = () => {
   const router = useRouter()
-  function home() {
-    router.push('./home')
+  function main() {
+    router.push('./main')
   }
 
   return (
     <div>
       <h2>Login</h2>
-      <button onClick={home}>home</button>
+      <button onClick={main}>main</button>
     </div>
   )
 }
