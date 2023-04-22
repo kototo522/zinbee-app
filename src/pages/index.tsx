@@ -1,5 +1,4 @@
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Record from '@/componemts/record'
 import HistoryList from '@/componemts/historyList'
 import { GptOption } from '@/componemts/gptOption'
@@ -10,12 +9,17 @@ export default function Home() {
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
 
   return (
-    <div>
-      <Record messages={messages} setMessages={setMessages} />
-      <HistoryList />
-      <AskGptTextarea messages={messages} setMessages={setMessages} />
+    <div className="flex w-full min-h-screen">
+      <div className="w-1/4">
+        <HistoryList />
+      </div>
+      <div className="w-3/4">
+        <Record messages={messages} setMessages={setMessages} />
+      </div>
+
+      {/* <AskGptTextarea messages={messages} setMessages={setMessages} />
       <GptOption setMessages={setMessages} />
-      <button onClick={() => setMessages([])}>メッセージをリセットする</button>
+      <button onClick={() => setMessages([])}>メッセージをリセットする</button> */}
     </div>
   )
 }
