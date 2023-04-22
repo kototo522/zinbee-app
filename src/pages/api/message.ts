@@ -13,7 +13,7 @@ const handler: NextApiHandler = async (req, res) => {
       return res.status(500).send({ error: 'OpenAI API key not configured' })
     }
 
-    if (req.method === 'GET') {
+    if (req.method === 'POST') {
       const message = req.body.message
 
       const completion = await openai.createChatCompletion({
@@ -29,9 +29,9 @@ const handler: NextApiHandler = async (req, res) => {
     }
   } catch (e) {
     if (e instanceof Error) {
-      return res.status(500).send({ error: `わりとやばい鰓${e.message}` })
+      return res.status(500).send({ error: `${e.message}` })
     } else {
-      return res.status(500).send({ error: `やばい鰓${String(e)}` })
+      return res.status(500).send({ error: `${String(e)}` })
     }
   }
 }
