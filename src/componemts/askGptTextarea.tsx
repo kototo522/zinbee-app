@@ -2,11 +2,11 @@ import { useGPT } from '@/hooks/useGPT'
 import { ChatCompletionRequestMessage } from 'openai'
 import { useState } from 'react'
 
-export const AskGPTTextarea = (): JSX.Element => {
+export const AskGptTextarea = (): JSX.Element => {
   // TODO: 仮置きのchat履歴なので.どこかからとる.
   // TODO: 共通してしてほしいことを設定できるようにする.例: 要約か改善か変換か.
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([
-    { role: 'system', content: 'ChatGPTの振る舞い方を指定' },
+    { role: 'system', content: '文章を全て敬体に直してください' },
   ])
   const [newMessage, setNewMessage] = useState<string>('')
 
