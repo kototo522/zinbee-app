@@ -12,6 +12,7 @@ const Record = () => {
     finalTranscript,
     resetTranscript,
     listening,
+    browserSupportsSpeechRecognition,
   } = useSpeechRecognition()
 
   useEffect(() => {
@@ -20,43 +21,40 @@ const Record = () => {
     }
   }, [interimTranscript, finalTranscript])
 
-  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-    return null
-  }
-
-  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+  if (!browserSupportsSpeechRecognition) {
     console.log(
       'Your browser does not support speech recognition software! Try Chrome desktop, maybe?'
     )
   }
 
-  const listenContinuously = () => {
+  const startRecord = () => {
     SpeechRecognition.startListening({
       continuous: true,
       language: 'ja',
     })
   }
 
+  const stopRecord = () => {
+    SpeechRecognition.stopListening()
+
+    setMessage(transcript)
+    resetTranscript()
+  }
+
   return (
     <div>
-      <div>
-        <span>listening: {listening ? 'on' : 'off'}</span>
+      <button type="button" onClick={startRecord}>
+        Record
+      </button>
+      {listening && (
         <div>
-          <button type="button" onClick={resetTranscript}>
-            Reset
-          </button>
-          <button type="button" onClick={listenContinuously}>
-            Listen
-          </button>
-          <button type="button" onClick={SpeechRecognition.stopListening}>
+          <button type="button" onClick={stopRecord}>
             Stop
           </button>
+          <div>{transcript}</div>
         </div>
-      </div>
+      )}
       <div>{message}</div>
-      <div>
-        <span>{transcript}</span>
-      </div>
     </div>
   )
 }
