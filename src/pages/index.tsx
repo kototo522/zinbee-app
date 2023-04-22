@@ -15,6 +15,7 @@ export default function Home() {
       <HistoryList />
       <AskGptTextarea messages={messages} setMessages={setMessages} />
       <GptOption setMessages={setMessages} />
+      <button onClick={() => setMessages([])}>メッセージをリセットする</button>
     </div>
   )
 }
