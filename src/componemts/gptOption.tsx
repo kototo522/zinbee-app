@@ -9,6 +9,7 @@ export const GptOption = memo(
 
     const handleClick = () => {
       setMessages((prev) => [...prev, { role: 'system', content: request }])
+      setRequest('')
     }
 
     return (
@@ -39,7 +40,9 @@ export const GptOption = memo(
                 わかりやすくする
               </SelectItem>
             </Select>
-            <button onClick={handleClick}>決定</button>
+            <Dialog.Close asChild>
+              <button onClick={handleClick}>決定</button>
+            </Dialog.Close>
             <Dialog.Close asChild>
               <button>close</button>
             </Dialog.Close>
