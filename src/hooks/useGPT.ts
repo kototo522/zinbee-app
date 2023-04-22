@@ -2,9 +2,9 @@ import { ChatCompletionRequestMessage } from 'openai'
 import { Dispatch, SetStateAction, useCallback, useState } from 'react'
 
 export const useGPT = () => {
-  // TODO: GPTが考え中なら何か表示する.
   const [isGPTThinking, setIsGPTThinking] = useState<boolean>(false)
 
+  // GPTに尋ねてmessageに内容を追加する.
   const askGPT = useCallback(
     async (
       messages: ChatCompletionRequestMessage[],
