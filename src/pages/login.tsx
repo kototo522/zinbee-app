@@ -68,6 +68,10 @@ const Login = () => {
           value="start"
         />
       </form>
+      <div className=" flex flex-col items-center justify-center ">
+        <h2 className="mt-10">新規登録は</h2>
+        <h2 className="border-b">こちら</h2>
+      </div>
     </div>
   )
 }
