@@ -39,15 +39,9 @@ const Record = (): JSX.Element => {
   const handleStopRecord = async () => {
     SpeechRecognition.stopListening()
 
-    const { message, data } = await askGPT(messages, transcript)
-
-    setMessages((prev) => [...prev, message])
-    setMessages((prev) => [...prev, data as ChatCompletionRequestMessage])
+    await askGPT(messages, setMessages, transcript)
 
     resetTranscript()
-
-    // TODO: あとで消す.
-    console.log(data, message, messages)
   }
 
   // TODO: あとで消す.

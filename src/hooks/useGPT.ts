@@ -1,12 +1,16 @@
 import { ChatCompletionRequestMessage } from 'openai'
-import { useCallback, useState } from 'react'
+import { Dispatch, SetStateAction, useCallback, useState } from 'react'
 
 export const useGPT = () => {
   // TODO: GPTが考え中なら何か表示する.
   const [isGPTThinking, setIsGPTThinking] = useState<boolean>(false)
 
   const askGPT = useCallback(
-    async (messages: ChatCompletionRequestMessage[], text: string) => {
+    async (
+      messages: ChatCompletionRequestMessage[],
+      setMessages: Dispatch<SetStateAction<ChatCompletionRequestMessage[]>>,
+      text: string
+    ) => {
       try {
         const message: ChatCompletionRequestMessage = {
           role: 'user',
@@ -38,10 +42,11 @@ export const useGPT = () => {
 
         setIsGPTThinking(false)
 
-        return {
-          message,
-          data,
-        }
+        setMessages((prev) => [...prev, message])
+        setMessages((prev) => [...prev, data as ChatCompletionRequestMessage])
+
+        // TODO: あとで消す.
+        console.log(data, message, messages)
       } catch (e) {
         if (e instanceof Error) {
           throw new Error(e.message)
