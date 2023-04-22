@@ -40,7 +40,10 @@ const SignUp = () => {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
       <h2 className="text-6xl font-black">SignUp</h2>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full flex flex-col justify-center items-center"
+      >
         <div className="flex flex-col mt-10 w-1/3">
           <input
             className="border"
@@ -72,9 +75,8 @@ const SignUp = () => {
         <Toaster />
       </form>
       <div className=" flex flex-col items-center justify-center ">
-        <h2 className="mt-10">ログインは</h2>
-        <Link className="border-b" href="/login">
-          こちら
+        <Link className="border-b mt-10" href="/login">
+          ログインはこちら
         </Link>
       </div>
     </div>
