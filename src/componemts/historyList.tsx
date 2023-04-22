@@ -1,7 +1,9 @@
+import { History } from './history'
+
 const HistoryList = () => {
   return (
-    <div className="">
-      <h2>HistoryList</h2>
+    <div className="w-full min-h-screen">
+      <History />
     </div>
   )
 }

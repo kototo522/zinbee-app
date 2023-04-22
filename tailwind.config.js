@@ -1,9 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/app/**/*.{js,ts,jsx,tsx}',
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -23,6 +21,25 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    colors: {
+      /* ホワイト */
+      white: {
+        DEFAULT: "var(--white-default)",
+      },
+      /* グレー */
+      gray: {
+        light: "var(--gray-light)",
+      },
+      /* ブラウン */
+      brown: {
+        dark: "var(--brown-dark)",
+      },
+      /* ブラック */
+      black: {
+        DEFAULT: "var(--black-default)",
+      },
+
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
