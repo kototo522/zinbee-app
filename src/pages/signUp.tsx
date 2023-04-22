@@ -24,7 +24,7 @@ const SignUp = () => {
       toast.success('finish created user!')
       await createUserWithEmailAndPassword(auth, email, password)
       router.push('./')
-    }
+    } else toast.error('入力に不備があります')
   }
 
   const handleNameChange = (event: changeEvent) => {

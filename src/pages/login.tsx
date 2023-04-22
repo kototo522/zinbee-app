@@ -14,22 +14,44 @@ type changeEvent = {
 const Login = () => {
   const auth = getAuth(app)
   const router = useRouter()
-  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (name && email && password) {
-      toast.success(`Welcome back ${name}！`)
-      await signInWithEmailAndPassword(auth, email, password)
-      router.push('./')
+    await signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        toast.success(`Welcome back！`)
+        signInWithEmailAndPassword(auth, email, password)
+        router.push('./')
+      })
+      .catch((error) => {
+        handleLoginError(error)
+      })
+  }
+
+  function handleLoginError(error: { code: any }) {
+    switch (error.code) {
+      case 'auth/wrong-password':
+        toast.error('パスワードが間違っています。')
+        break
+      case 'auth/user-not-found':
+        toast.error('ユーザーが見つかりません。')
+        break
+      case 'auth/invalid-email':
+        toast.error('正しい形式のメールアドレスを入力してください。')
+        break
+      case 'auth/too-many-requests':
+        toast.error(
+          'アカウントが一時的にロックされています。しばらくしてから再度お試しください。'
+        )
+        break
+      default:
+        toast.error('ログインに失敗しました。')
+        break
     }
   }
 
-  const handleNameChange = (event: changeEvent) => {
-    setName(event.target.value)
-  }
   const handleEmailChange = (event: changeEvent) => {
     setEmail(event.target.value)
   }
@@ -42,13 +64,6 @@ const Login = () => {
       <h2 className="text-6xl font-black">Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col mt-10 w-1/3">
-          <input
-            className="border"
-            type="text"
-            id="name"
-            name="name"
-            onChange={handleNameChange}
-          />
           <input
             className="mt-2 border"
             type="email"
