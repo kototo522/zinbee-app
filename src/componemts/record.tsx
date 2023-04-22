@@ -8,7 +8,7 @@ import SpeechRecognition, {
 const Record = (): JSX.Element => {
   // TODO: 仮置きのchat履歴なので.どこかからとる.
   // TODO: 共通してしてほしいことを設定できるようにする.例: 要約か改善か変換か.
-  const [chats, setChats] = useState<ChatCompletionRequestMessage[]>([
+  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([
     { role: 'system', content: 'ChatGPTの振る舞い方を指定' },
   ])
 
@@ -39,20 +39,20 @@ const Record = (): JSX.Element => {
   const handleStopRecord = async () => {
     SpeechRecognition.stopListening()
 
-    const { message, data } = await askGPT(chats, transcript)
+    const { message, data } = await askGPT(messages, transcript)
 
-    setChats((prev) => [...prev, message])
-    setChats((prev) => [...prev, data as ChatCompletionRequestMessage])
+    setMessages((prev) => [...prev, message])
+    setMessages((prev) => [...prev, data as ChatCompletionRequestMessage])
 
     resetTranscript()
 
     // TODO: あとで消す.
-    console.log(data, message, chats)
+    console.log(data, message, messages)
   }
 
   // TODO: あとで消す.
   const testfunc = () => {
-    console.log(chats)
+    console.log(messages)
   }
 
   return (
