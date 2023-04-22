@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
 
 type changeEvent = {
   target: {
