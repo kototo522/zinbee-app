@@ -1,8 +1,9 @@
 const Record = () => {
   return (
-    <div className="flex justify-center h-screen">
+    <div className="">
+      <h2>record</h2>
       {/* <button className="bg-neutral-400"> */}
-      {/* <Image src="/mike.svg" alt="mike" fill /> */}ボタン
+      {/* <Image src="/mike.svg" alt="mike" fill /> */}
       {/* </button> */}
     </div>
   )
