@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { app } from '../Firebase/firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import toast, { Toaster } from 'react-hot-toast'
 import Link from 'next/link'
 
 type changeEvent = {
@@ -20,6 +21,7 @@ const SignUp = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (name && email && password) {
+      toast.success('finish created user!')
       await createUserWithEmailAndPassword(auth, email, password)
       router.push('./')
     }
@@ -34,7 +36,7 @@ const SignUp = () => {
   const handlePasswordChange = (event: changeEvent) => {
     setPassword(event.target.value)
   }
-
+  
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
       <h2 className="text-6xl font-black">SignUp</h2>
@@ -67,10 +69,13 @@ const SignUp = () => {
           type="submit"
           value="start"
         />
+        <Toaster />
       </form>
       <div className=" flex flex-col items-center justify-center ">
         <h2 className="mt-10">ログインは</h2>
-        <Link className="border-b" href="/login">こちら</Link>
+        <Link className="border-b" href="/login">
+          こちら
+        </Link>
       </div>
     </div>
   )
