@@ -18,7 +18,7 @@ export const AskGPTTextarea = (): JSX.Element => {
 
   return (
     <div>
-      // TODO: formを使うとページ遷移が発生するので解決する.
+      {/* TODO: formを使うとページ遷移が発生するので解決する. */}
       {/* <form onSubmit={handleSubmit}> */}
       <textarea
         value={newMessage}
