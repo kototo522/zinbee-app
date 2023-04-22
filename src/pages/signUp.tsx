@@ -36,7 +36,7 @@ const SignUp = () => {
   const handlePasswordChange = (event: changeEvent) => {
     setPassword(event.target.value)
   }
-  
+
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
       <h2 className="text-6xl font-black">SignUp</h2>
