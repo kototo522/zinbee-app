@@ -8,8 +8,9 @@ export const AskGptTextarea = memo(
 
     const { askGPT } = useGPT()
 
-    const handleSubmit = async () => {
+    const handleClick = async () => {
       await askGPT(messages, setMessages, newMessage)
+      setNewMessage('')
     }
 
     return (
@@ -20,13 +21,10 @@ export const AskGptTextarea = memo(
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
         />
-        <button onClick={handleSubmit} type="button">
+        <button onClick={handleClick} type="button">
           送信
         </button>
         {/* </form> */}
-        <button type="submit" onClick={() => console.log(messages)}>
-          test
-        </button>
       </div>
     )
   }
