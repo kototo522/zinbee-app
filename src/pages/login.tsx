@@ -29,7 +29,7 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center">
+    <div className="w-full h-screen flex flex-col justify-center items-center bg-gradient-to-t from-gray-light to-white">
       <h2 className="text-6xl font-black">Login</h2>
       <div className="flex flex-col mt-10 w-1/3">
         <input
