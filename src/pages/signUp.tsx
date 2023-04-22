@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { app } from '../Firebase/firebase'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
 
 type changeEvent = {
@@ -10,7 +10,7 @@ type changeEvent = {
   }
 }
 
-const Login = () => {
+const SignUp = () => {
   const auth = getAuth(app)
   const router = useRouter()
   const [name, setName] = useState('')
@@ -20,7 +20,7 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (name && email && password) {
-      await signInWithEmailAndPassword(auth, email, password)
+      await createUserWithEmailAndPassword(auth, email, password)
       router.push('./')
     }
   }
@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
-      <h2 className="text-6xl font-black">Login</h2>
+      <h2 className="text-6xl font-black">SignUp</h2>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col mt-10 w-1/3">
           <input
@@ -69,11 +69,11 @@ const Login = () => {
         />
       </form>
       <div className=" flex flex-col items-center justify-center ">
-        <h2 className="mt-10">新規登録は</h2>
-        <Link className="border-b" href="/signUp">こちら</Link>
+        <h2 className="mt-10">ログインは</h2>
+        <Link className="border-b" href="/login">こちら</Link>
       </div>
     </div>
   )
 }
 
-export default Login
+export default SignUp
