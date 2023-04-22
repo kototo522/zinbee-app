@@ -55,14 +55,14 @@ const Login = () => {
         />
       </div>
       <input
-        className="mt-10 px-10 font-black border"
+        className="mt-10 px-10 font-black border hover:opacity-30"
         type="submit"
         value="start"
         onClick={jumpHome}
       />
-      <div className=" flex flex-col items-center justify-center ">
+      <div className=" flex flex-col items-center justify-center">
         <h2 className="mt-10">新規登録は</h2>
-        <h2 className="border-b">こちら</h2>
+        <h2 className="border-b hover:opacity-30">こちら</h2>
       </div>
     </div>
   )
