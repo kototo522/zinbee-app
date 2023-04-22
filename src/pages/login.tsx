@@ -3,14 +3,16 @@ import { useRouter } from 'next/router'
 
 const Login: NextPage = () => {
   const router = useRouter()
-  function main() {
-    router.push('./main')
+  function jumpHome() {
+    router.push('./')
   }
 
   return (
     <div>
       <h2>Login</h2>
-      <button onClick={main}>main</button>
+      <input type="text" id="name" name="name" />
+      <input type="email" id="email" name="email" />
+      <input type="button" value="start" onClick={jumpHome} />
     </div>
   )
 }
