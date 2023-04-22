@@ -1,5 +1,6 @@
+import { useGPT } from '@/hooks/useGPT'
 import { ChatCompletionRequestMessage } from 'openai'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition'
@@ -11,8 +12,7 @@ const Record = (): JSX.Element => {
     { role: 'system', content: 'ChatGPTの振る舞い方を指定' },
   ])
 
-  // TODO: GPTが考え中なら何か表示する.
-  const [isGPTThinking, setIsGPTThinking] = useState<boolean>(false)
+  const { askGPT } = useGPT()
 
   const {
     transcript,
@@ -37,54 +37,17 @@ const Record = (): JSX.Element => {
 
   // GPTへのリクエストもしている.
   const handleStopRecord = async () => {
-    try {
-      const message: ChatCompletionRequestMessage = {
-        role: 'user',
-        content: transcript,
-      }
+    SpeechRecognition.stopListening()
 
-      SpeechRecognition.stopListening()
+    const { message, data } = await askGPT(chats, transcript)
 
-      setIsGPTThinking(true)
-      setChats((prev) => [...prev, message])
+    setChats((prev) => [...prev, message])
+    setChats((prev) => [...prev, data as ChatCompletionRequestMessage])
 
-      const response = await fetch('/api/message', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: [...chats, message].map((d) => ({
-            role: d.role,
-            content: d.content,
-          })),
-        }),
-      })
+    resetTranscript()
 
-      const data = await response.json()
-
-      if (response.status !== 200) {
-        throw (
-          data.error ||
-          new Error(`Request failed with status ${response.status}`)
-        )
-      }
-
-      setChats((prev) => [...prev, data as ChatCompletionRequestMessage])
-
-      resetTranscript()
-
-      // TODO: あとで消す.
-      console.log(data, message, chats)
-    } catch (e) {
-      if (e instanceof Error) {
-        console.log(e.message)
-      } else {
-        console.log(String(e))
-      }
-    } finally {
-      setIsGPTThinking(false)
-    }
+    // TODO: あとで消す.
+    console.log(data, message, chats)
   }
 
   // TODO: あとで消す.
