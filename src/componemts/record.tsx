@@ -16,19 +16,12 @@ const Record = (): JSX.Element => {
 
   const {
     transcript,
-    interimTranscript,
-    finalTranscript,
     resetTranscript,
     listening,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition()
 
-  useEffect(() => {
-    if (finalTranscript !== '') {
-      console.log('Got final result:', finalTranscript)
-    }
-  }, [interimTranscript, finalTranscript])
-
+  // TODO: 嘘をつく問題を解決する.
   if (!browserSupportsSpeechRecognition) {
     console.log(
       'Your browser does not support speech recognition software! Try Chrome desktop, maybe?'
@@ -86,7 +79,7 @@ const Record = (): JSX.Element => {
       if (e instanceof Error) {
         console.log(e.message)
       } else {
-        throw new Error(String(e))
+        console.log(String(e))
       }
     } finally {
       setIsGPTThinking(false)
