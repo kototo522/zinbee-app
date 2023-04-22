@@ -11,9 +11,9 @@ export default function Home() {
 
   return (
     <div>
-      <Record />
+      <Record messages={messages} setMessages={setMessages} />
       <HistoryList />
-      <AskGptTextarea />
+      <AskGptTextarea messages={messages} setMessages={setMessages} />
       <GptOption setMessages={setMessages} />
     </div>
   )

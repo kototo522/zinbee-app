@@ -4,7 +4,7 @@ import { memo, useState } from 'react'
 import type { GptMessagesProps } from '../types/GptMessagesProps'
 
 export const GptOption = memo(
-  ({ setMessages }: GptMessagesProps): JSX.Element => {
+  ({ setMessages }: Pick<GptMessagesProps, 'setMessages'>): JSX.Element => {
     const [request, setRequest] = useState<string>('')
 
     const handleClick = () => {
