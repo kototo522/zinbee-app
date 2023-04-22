@@ -1,13 +1,11 @@
-import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
-import Record from '@/componemts/record';
-import HistoryList from '@/componemts/historyList';
+import HistoryList from '@/componemts/historyList'
+import Record from '@/componemts/record'
 
 export default function Home() {
-  return(
+  return (
     <div>
-      <Record/>
-      <HistoryList/>
+      <Record />
+      <HistoryList />
     </div>
   )
 }
