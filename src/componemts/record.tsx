@@ -35,6 +35,7 @@ const Record = (): JSX.Element => {
     })
   }
 
+  // GPTへのリクエストもしている.
   const handleStopRecord = async () => {
     try {
       const message: ChatCompletionRequestMessage = {
