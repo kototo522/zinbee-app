@@ -10,14 +10,14 @@ export default function Home() {
 
   return (
     <div className="flex w-full">
-      <div className="w-1/4">
+      <div className="w-1/4 bg-brown-dark">
         <HistoryList />
       </div>
       <div className="w-3/4">
         <Record messages={messages} setMessages={setMessages} />
         <AskGptTextarea messages={messages} setMessages={setMessages} />
         <GptOption setMessages={setMessages} />
-        <button onClick={() => setMessages([])}>
+        <button className="mt-4 font-black text-sm" onClick={() => setMessages([])}>
           メッセージをリセットする
         </button>
       </div>
