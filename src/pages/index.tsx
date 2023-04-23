@@ -9,7 +9,7 @@ export default function Home() {
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
 
   return (
-    <div className="flex w-full min-h-screen">
+    <div className="flex w-full">
       <div className="w-1/4">
         <HistoryList />
       </div>
