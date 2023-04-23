@@ -1,7 +1,18 @@
 export const History = () => {
+  const example = ['yahhoi', 'wahhoi', 'wanndahoi']
+
   return (
-    <div className="mt-10 text-white border-y-2 border-white">
-      <h1>履歴</h1>
+    <div className="mt-10">
+      <ul>
+        {example.map((example, index) => (
+          <li
+            key={index}
+            className="w-full mb-5 text-white border-y border-white"
+          >
+            {example}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
