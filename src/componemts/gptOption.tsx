@@ -18,7 +18,7 @@ export const GptOption = memo(
           <button>options</button>
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className='inset-0 bg-black-100'/>
+          <Dialog.Overlay className='inset-0 bg-slate-400'/>
           <Dialog.Content className="fixed top-[50%] left-[50%] h-[80%] w-[90%] max-w-[350px] translate-x-[-50%] translate-y-[-50%] items-center justify-center rounded-[6px] bg-white p-[24px]">
             <Dialog.Title  className="text-[24px] font-bold">設定</Dialog.Title>
             <input
