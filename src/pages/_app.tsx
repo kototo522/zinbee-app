@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import 'regenerator-runtime/runtime'
 import '@/styles/helper.css'
 import type { AppProps } from 'next/app'
 import { AuthProvider } from '../context/AuthContext'
