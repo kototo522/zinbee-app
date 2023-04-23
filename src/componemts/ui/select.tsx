@@ -6,7 +6,7 @@ import {
   SetStateAction,
   forwardRef,
 } from 'react'
-import { AiOutlineUp, AiOutlineDown, AiOutlineCheck } from 'react-icons/ai'
+import { AiOutlineCheck, AiOutlineDown, AiOutlineUp } from 'react-icons/ai'
 
 type Props = {
   children: ReactNode
@@ -27,11 +27,11 @@ export const Select = ({
 }: Props): JSX.Element => {
   return (
     <RadixSelect.Root value={value} onValueChange={setValue}>
-      <RadixSelect.Trigger asChild>
+      <RadixSelect.Trigger asChild className='border-b hover:opacity-25'>
         <button>{title}</button>
       </RadixSelect.Trigger>
       <RadixSelect.Portal>
-        <RadixSelect.Content>
+        <RadixSelect.Content className='z-10'>
           <RadixSelect.ScrollUpButton>
             <AiOutlineUp />
           </RadixSelect.ScrollUpButton>
