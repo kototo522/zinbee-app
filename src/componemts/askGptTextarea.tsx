@@ -14,15 +14,19 @@ export const AskGptTextarea = memo(
     }
 
     return (
-      <div className='flex flex-col items-center'>
+      <div className="flex flex-col items-center">
         {/* TODO: formを使うとページ遷移が発生するので解決する. */}
         {/* <form onSubmit={handleSubmit}> */}
-        <button className="font-black border text-2xl px-10 rounded hover:opacity-40" onClick={handleClick} type="button">
+        <button
+          className="font-black border text-2xl px-10 rounded hover:opacity-40"
+          onClick={handleClick}
+          type="button"
+        >
           送信
         </button>
-        <h3 className='pt-10 text-sm font-black'>テキスト入力はこちら↓</h3>
+        <h3 className="pt-10 text-sm font-black">テキスト入力はこちら↓</h3>
         <textarea
-          className='border rounded'
+          className="border rounded"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
         />

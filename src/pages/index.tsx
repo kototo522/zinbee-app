@@ -17,7 +17,10 @@ export default function Home() {
         <Record messages={messages} setMessages={setMessages} />
         <AskGptTextarea messages={messages} setMessages={setMessages} />
         <GptOption setMessages={setMessages} />
-        <button className="mt-4 font-black text-sm" onClick={() => setMessages([])}>
+        <button
+          className="mt-4 font-black text-sm"
+          onClick={() => setMessages([])}
+        >
           メッセージをリセットする
         </button>
       </div>

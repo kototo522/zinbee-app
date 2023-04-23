@@ -59,19 +59,20 @@ const Record = memo(
     }
 
     return (
-      <div className='flex flex-col items-center justify-center w-full'>
-        <h1 className='mt-10 mb-5 font-black text-xl'>音声を入力</h1>
-        <div className='flex justify-center items-center'>
-        <button type="button" onClick={handleStartRecord}>
-          <input type="image" src="mike.svg" alt="送信" />
+      <div className="flex flex-col items-center justify-center w-full">
+        <h1 className="mt-10 mb-5 font-black text-xl">音声を入力</h1>
+        <div className="flex justify-center items-center">
+          <button type="button" onClick={handleStartRecord}>
+            <input type="image" src="mike.svg" alt="送信" />
           </button>
         </div>
         {listening && (
-          <div className='flex flex-col'>
+          <div className="flex flex-col">
             <button
               className="font-black text-xl w-20 h-20"
               type="button"
-              onClick={handleStopRecord}>
+              onClick={handleStopRecord}
+            >
               Stop
             </button>
             <div>{transcript}</div>
