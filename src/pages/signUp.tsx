@@ -22,7 +22,7 @@ const SignUp = () => {
     e.preventDefault()
     if (name && email && password) {
       toast.success('finish created user!')
-      await createUserWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, email, password)
       router.push('./')
     } else toast.error('入力に不備があります')
   }
@@ -38,7 +38,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center">
+    <div className="w-full h-screen flex flex-col justify-center items-center bg-gradient-to-t from-gray-light to-white">
       <h2 className="text-6xl font-black">SignUp</h2>
       <form
         onSubmit={handleSubmit}
@@ -46,8 +46,8 @@ const SignUp = () => {
       >
         <div className="flex flex-col mt-10 w-1/3">
           <input
-            className="border"
-            type="text"
+            className="mt-2 border"
+            type="name"
             id="name"
             name="name"
             onChange={handleNameChange}
