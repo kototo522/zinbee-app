@@ -1,13 +1,15 @@
-import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
-import Record from '@/componemts/record';
-import HistoryList from '@/componemts/historyList';
+import HistoryList from '@/componemts/historyList'
+import Record from '@/componemts/record'
 
 export default function Home() {
-  return(
-    <div>
-      <Record/>
-      <HistoryList/>
+  return (
+    <div className="flex w-full min-h-screen">
+      <div className="w-1/4">
+        <HistoryList />
+      </div>
+      <div className="w-3/4">
+        <Record />
+      </div>
     </div>
   )
 }
