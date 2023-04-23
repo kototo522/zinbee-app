@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import Record from '@/componemts/record'
-import HistoryList from '@/componemts/historyList'
-import { GptOption } from '@/componemts/gptOption'
 import { AskGptTextarea } from '@/componemts/askGptTextarea'
+import { GptOption } from '@/componemts/gptOption'
+import HistoryList from '@/componemts/historyList'
+import Record from '@/componemts/record'
 import { ChatCompletionRequestMessage } from 'openai'
+import { useState } from 'react'
 
 export default function Home() {
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
