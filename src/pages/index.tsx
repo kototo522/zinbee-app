@@ -15,11 +15,12 @@ export default function Home() {
       </div>
       <div className="w-3/4">
         <Record messages={messages} setMessages={setMessages} />
+        <AskGptTextarea messages={messages} setMessages={setMessages} />
+        <GptOption setMessages={setMessages} />
+        <button onClick={() => setMessages([])}>
+          メッセージをリセットする
+        </button>
       </div>
-
-      {/* <AskGptTextarea messages={messages} setMessages={setMessages} />
-      <GptOption setMessages={setMessages} />
-      <button onClick={() => setMessages([])}>メッセージをリセットする</button> */}
     </div>
   )
 }
